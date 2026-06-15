@@ -84,6 +84,19 @@
   .body-col p{margin:0 0 20px;color:var(--ink);font-size:1.04rem;}
   .body-col .btn{margin-top:12px;}
 
+  /* ---- What's On ---- */
+  .events h2{color:var(--maroon);font-size:clamp(1.9rem,3.3vw,2.6rem);margin-bottom:32px;}
+  .events-list{display:flex;flex-direction:column;gap:0;max-width:780px;}
+  .event{display:flex;gap:24px;align-items:flex-start;padding:20px 0;border-top:1px solid var(--line);}
+  .event:first-child{border-top:0;padding-top:0;}
+  .event-date{flex:0 0 auto;width:62px;text-align:center;background:var(--maroon);color:var(--cream);border-radius:2px;padding:9px 4px;}
+  .event-date .ed-day{display:block;font-family:"Bodoni Moda",serif;font-weight:700;font-size:1.7rem;line-height:1;}
+  .event-date .ed-mon{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-top:3px;}
+  .event-body h3{color:var(--maroon);font-size:1.4rem;}
+  .event-time{font-weight:700;color:var(--ink);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin:5px 0 0;}
+  .event-body p{margin:7px 0 0;color:var(--muted);font-size:1rem;}
+  .events-empty{color:var(--muted);font-size:1.02rem;}
+
   /* ---- Menus ---- */
   .menus h2{color:var(--maroon);font-size:clamp(1.9rem,3.3vw,2.6rem);margin-bottom:6px;}
   .menus .sub{color:var(--muted);margin:0 0 44px;max-width:48ch;}
@@ -173,6 +186,7 @@
   <div class="wrap nav">
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="links" id="navLinks">
+      <a class="link" href="#events">What's On</a>
       <a class="link" href="#menu">Menus</a>
       <a class="link" href="#contact">Contact</a>
       <a class="btn btn-primary" href="#" data-book>Book</a>
@@ -207,6 +221,14 @@
       <div class="lead-statement" id="aboutLead"></div>
       <div class="body-col" id="aboutBody"></div>
     </div>
+  </div>
+</section>
+
+<section class="events" id="events">
+  <div class="wrap block">
+    <div class="eyebrow">What's On</div>
+    <h2>What's on at The Garrison</h2>
+    <div class="events-list" id="eventsList"></div>
   </div>
 </section>
 
@@ -284,6 +306,7 @@
   const DEFAULT_CONTENT = {
     "hero":{"headline":"Family friendly local pub serving Bushy's beer and great food","image":"https://cdn.prod.website-files.com/66a8fc7c1484dd0e36609ee9/66f52d894e96d70fc27c6896_Placeholder%20Image%20(2).png","hours":{"breakfast":"9am to 11am","lunch":"12pm to 2:30pm","dinner":"5pm to 8:30pm"}},
     "about":{"lead":"Welcome to The Garrison, a historic gem dating back to 1640, nestled in Castletown, the ancient capital of the Isle of Man.","paragraphs":["Steeped in history and charm, our pub offers a delightful retreat in the shadows of the majestic Castle Rushen.","Enjoy a pint of our finest beers on tap, lovingly crafted by the renowned team behind Bushy's Brewery. Savour traditional cuisine with our hearty breakfast, lunch, and dinner menus. The Garrison Pub promises a unique and memorable experience, blending heritage with modern comforts."]},
+    "events":[{"title":"Live Music — Friday Session","date":"2026-06-19","time":"8pm","description":"Local acoustic act in the bar. Free entry, all welcome."},{"title":"Sunday Roast","date":"2026-06-21","time":"12pm – 4pm","description":"Traditional roasts. Booking recommended."},{"title":"Pub Quiz Night","date":"2026-06-26","time":"8:30pm","description":"Teams of up to six. £2 a head, cash prize behind the bar."}],
     "menus":[
       {"title":"Spring Food","description":"Our seasonal main menu — hearty plates and pub classics.","linkType":"pdf","pdf":"https://cdn.prod.website-files.com/6731e4ab0e108a05445a46c4/6a268a025ba6887464e3c086_The%20Garrison%20Menu%20-%20Spring%202026%20Website_02.pdf"},
       {"title":"Breakfast","description":"Served 9am to 11am. A proper start to the day.","linkType":"pdf","pdf":"https://cdn.prod.website-files.com/6731e4ab0e108a05445a46c4/6911bf401c6f83070a6afc31_Breakfast%20Menu%20Spring%2025.pdf"},
@@ -303,6 +326,33 @@
 
   const $ = id => document.getElementById(id);
   const tel = p => "tel:" + (p||"").replace(/\s+/g,"");
+
+  function renderEvents(events){
+    const el = $("eventsList");
+    if (!el) return;
+    const today = new Date(); today.setHours(0,0,0,0);
+    const upcoming = (events || [])
+      .filter(e => e && e.date)
+      .map(e => ({ ...e, d: new Date(e.date + "T00:00:00") }))
+      .filter(e => !isNaN(e.d) && e.d >= today)
+      .sort((a,b) => a.d - b.d);
+    if (!upcoming.length){
+      el.innerHTML = `<p class="events-empty">Nothing in the diary just now — check back soon, or follow us on social for the latest.</p>`;
+      return;
+    }
+    el.innerHTML = upcoming.map(e => `
+      <div class="event">
+        <div class="event-date">
+          <span class="ed-day">${e.d.getDate()}</span>
+          <span class="ed-mon">${e.d.toLocaleDateString("en-GB",{month:"short"})}</span>
+        </div>
+        <div class="event-body">
+          <h3>${e.title || ""}</h3>
+          ${e.time ? `<div class="event-time">${e.time}</div>` : ""}
+          ${e.description ? `<p>${e.description}</p>` : ""}
+        </div>
+      </div>`).join("");
+  }
 
   let gamesTimer = null;
   function startGamesRotation(art){
@@ -355,6 +405,7 @@
 
     $("socials").innerHTML = c.social.map(s => `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`).join("");
     $("year").textContent = new Date().getFullYear();
+    renderEvents(c.events);
   }
 
   render(DEFAULT_CONTENT);
