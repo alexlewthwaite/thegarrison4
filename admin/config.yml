@@ -71,6 +71,24 @@ collections:
                 widget: "list"
                 field: { label: "Paragraph", name: "text", widget: "text" }
 
+          - label: "What's On (events)"
+            name: "events"
+            widget: "list"
+            label_singular: "Event"
+            summary: "{{fields.title}} — {{fields.date}}"
+            hint: "Add upcoming events. Once an event's date has passed it disappears from the website automatically — no need to delete it."
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Date"
+                name: "date"
+                widget: "datetime"
+                format: "YYYY-MM-DD"
+                date_format: "ddd D MMM YYYY"
+                time_format: false
+                picker_utc: false
+              - { label: "Time", name: "time", widget: "string", required: false, hint: "e.g. 8pm, or 7–10pm" }
+              - { label: "Details", name: "description", widget: "text", required: false }
+
           - label: "Menus"
             name: "menus"
             widget: "list"
