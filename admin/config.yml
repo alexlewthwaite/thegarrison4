@@ -6,6 +6,7 @@
 # Use DecapBridge PKCE auth (required)
 backend:
   name: git-gateway
+      auth_type: pkce
   repo: alexlewthwaite/thegarrison4
   branch: main
   auth_type: pkce
