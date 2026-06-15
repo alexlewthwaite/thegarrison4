@@ -1,0 +1,9 @@
+# No build step needed — this is a static site published from the repo root.
+[build]
+  publish = "."
+
+# Keep the admin panel out of search results
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "headline": "Family friendly local pub serving Bushy's beer and great food",
+    "image": "https://cdn.prod.website-files.com/66a8fc7c1484dd0e36609ee9/66f52d894e96d70fc27c6896_Placeholder%20Image%20(2).png",
+    "hours": {
+      "breakfast": "9am to 11am",
+      "lunch": "12pm to 2:30pm",
+      "dinner": "5pm to 8:30pm"
+    }
+  },
+  "about": {
+    "lead": "Welcome to The Garrison, a historic gem dating back to 1640, nestled in Castletown, the ancient capital of the Isle of Man.",
+    "paragraphs": [
+      "Steeped in history and charm, our pub offers a delightful retreat in the shadows of the majestic Castle Rushen.",
+      "Enjoy a pint of our finest beers on tap, lovingly crafted by the renowned team behind Bushy's Brewery. Savour traditional cuisine with our hearty breakfast, lunch, and dinner menus. The Garrison Pub promises a unique and memorable experience, blending heritage with modern comforts."
+    ]
+  },
+  "menus": [
+    {
+      "title": "Spring Food",
+      "description": "Our seasonal main menu — hearty plates and pub classics.",
+      "linkType": "pdf",
+      "pdf": "https://cdn.prod.website-files.com/6731e4ab0e108a05445a46c4/6a268a025ba6887464e3c086_The%20Garrison%20Menu%20-%20Spring%202026%20Website_02.pdf"
+    },
+    {
+      "title": "Breakfast",
+      "description": "Served 9am to 11am. A proper start to the day.",
+      "linkType": "pdf",
+      "pdf": "https://cdn.prod.website-files.com/6731e4ab0e108a05445a46c4/6911bf401c6f83070a6afc31_Breakfast%20Menu%20Spring%2025.pdf"
+    },
+    {
+      "title": "Sunday Roasts",
+      "description": "Traditional roasts every Sunday. Booking recommended.",
+      "linkType": "book",
+      "pdf": ""
+    },
+    {
+      "title": "Drinks",
+      "description": "Bushy's beers on tap, Fynoderee spirits and more.",
+      "linkType": "pdf",
+      "pdf": "https://cdn.prod.website-files.com/6731e4ab0e108a05445a46c4/6a06e812131ed0117a972856_Menu%2001-%20A4.pdf"
+    },
+    {
+      "title": "Kids",
+      "description": "Little ones welcome — a menu just for them.",
+      "linkType": "pdf",
+      "pdf": "https://cdn.prod.website-files.com/6731e4ab0e108a05445a46c4/69a80e339681bf721af1a0a9_The%20Garrison%20Menu%20-%20Kids%202026%20Website_02.pdf"
+    }
+  ],
+  "games": {
+    "heading": "Old-school games, modern fun",
+    "body": "Our brand new Games Room at The Garrison offers a nod to traditional pub entertainment. You'll find old-school games such as table skittles, cribbage and bar billiards — a sense of nostalgia and fun for players of all ages.",
+    "note": "Available to local clubs and societies, bookable for no cost Monday through Wednesday. Open to the public Thursday through Sunday.",
+    "phone": "01624 824885",
+    "images": [
+      "assets/games/games-1.jpg",
+      "assets/games/games-2.jpg",
+      "assets/games/games-3.jpg",
+      "assets/games/games-4.jpg",
+      "assets/games/games-5.jpg"
+    ]
+  },
+  "contact": {
+    "heading": "Find us & say hello",
+    "lead": "For general inquiries, please use the details below or drop us a message.",
+    "phone": "01624 824885",
+    "hours": "Open 9am to 10:30pm every day",
+    "address": "5 Castle St, Castletown, Isle of Man, IM9 1LF",
+    "mapUrl": "https://www.google.com/maps?q=The+Garrison+5+Castle+St+Castletown+Isle+of+Man+IM9+1LF"
+  },
+  "social": [
+    {
+      "label": "Tripadvisor",
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g190931-d775465-Reviews-Garrison-Castletown_Isle_of_Man.html"
+    },
+    {
+      "label": "Facebook",
+      "url": "https://www.facebook.com/profile.php?id=400795457368876"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/thegarrisoniom/"
+    },
+    {
+      "label": "Untappd",
+      "url": "https://untappd.com/v/the-garrison/9010073"
+    }
+  ]
+}

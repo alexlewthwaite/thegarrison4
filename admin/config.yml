@@ -1,0 +1,119 @@
+# Editor login is handled by DecapBridge — the maintained replacement for
+# Netlify Identity (which Netlify retired). It's free, and lets staff log in with
+# Google/Microsoft, no GitHub account needed. Register your repo at
+# https://decapbridge.com and it will give you the exact `repo` and site-id
+# values to paste in below.
+backend:
+  name: git-gateway
+  repo: YOUR-GITHUB-USERNAME/garrison-site            # <- from DecapBridge
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/YOUR-SITE-ID   # <- from DecapBridge
+  gateway_url: https://gateway.decapbridge.com
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}" — {{author-name}}'
+    update: 'Update {{collection}} "{{slug}}" — {{author-name}}'
+    delete: 'Delete {{collection}} "{{slug}}" — {{author-name}}'
+    uploadMedia: 'Upload "{{path}}" — {{author-name}}'
+    deleteMedia: 'Delete "{{path}}" — {{author-name}}'
+
+# Where uploaded images/PDFs are stored in the repo, and how the site links to them
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# Show editors a "View live" link
+site_url: https://www.thegarrison.im
+display_url: https://www.thegarrison.im
+
+collections:
+  - name: "content"
+    label: "Website"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "site"
+        label: "The Garrison — Page Content"
+        file: "content.json"
+        format: json
+        description: "Edit any section below, then click Publish. The website updates within a minute or two."
+        fields:
+          - label: "Hero (top of page)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Headline", name: "headline", widget: "text" }
+              - { label: "Hero image", name: "image", widget: "image" }
+              - label: "Opening hours"
+                name: "hours"
+                widget: "object"
+                fields:
+                  - { label: "Breakfast", name: "breakfast", widget: "string" }
+                  - { label: "Lunch", name: "lunch", widget: "string" }
+                  - { label: "Dinner", name: "dinner", widget: "string" }
+
+          - label: "About Us"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Welcome line (large red text)", name: "lead", widget: "text" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "text", widget: "text" }
+
+          - label: "Menus"
+            name: "menus"
+            widget: "list"
+            label_singular: "Menu"
+            summary: "{{fields.title}}"
+            hint: "Add, remove or reorder menu cards. Drag the handle to reorder."
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Card action"
+                name: "linkType"
+                widget: "select"
+                options:
+                  - { label: "Link to a PDF menu", value: "pdf" }
+                  - { label: "Open the booking widget", value: "book" }
+                default: "pdf"
+              - label: "PDF menu"
+                name: "pdf"
+                widget: "file"
+                required: false
+                media_library: { config: { allowed_formats: ["pdf"] } }
+                hint: "Upload the menu PDF. Leave blank if this card opens booking."
+
+          - label: "Games Room"
+            name: "games"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Note", name: "note", widget: "text" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - label: "Photos (rotate automatically)"
+                name: "images"
+                widget: "list"
+                field: { label: "Photo", name: "image", widget: "image" }
+                hint: "Add multiple photos and they'll fade through one after another beside the Games Room text."
+
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Intro text", name: "lead", widget: "text" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "Opening hours line", name: "hours", widget: "string" }
+              - { label: "Address", name: "address", widget: "string" }
+              - { label: "Google Maps URL", name: "mapUrl", widget: "string" }
+
+          - label: "Social links"
+            name: "social"
+            widget: "list"
+            label_singular: "Link"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
