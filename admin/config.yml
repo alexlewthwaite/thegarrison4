@@ -52,6 +52,7 @@ collections:
             widget: "object"
             fields:
               - { label: "Headline", name: "headline", widget: "text" }
+              - { label: "Hero image", name: "image", widget: "image" }
               - label: "Opening hours"
                 name: "hours"
                 widget: "object"
