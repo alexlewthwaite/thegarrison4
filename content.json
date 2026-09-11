@@ -1,6 +1,6 @@
 {
   "hero": {
-    "headline": "Family friendly local pub serving Bushy's beer and great food!",
+    "headline": "Family friendly local pub serving Bushy's beer and great food",
     "image": "https://cdn.prod.website-files.com/66a8fc7c1484dd0e36609ee9/66f52d894e96d70fc27c6896_Placeholder%20Image%20(2).png",
     "hours": {
       "breakfast": "9am to 11am",
@@ -16,12 +16,6 @@
     ]
   },
   "events": [
-    {
-      "title": "Live Music — Friday Session",
-      "date": "2026-09-16",
-      "time": "8pm",
-      "description": "Local acoustic act in the bar. Free entry, all welcome."
-    },
     {
       "title": "Sunday Roast",
       "date": "2026-06-21",
