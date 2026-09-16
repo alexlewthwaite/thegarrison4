@@ -31,7 +31,7 @@
   ],
   "menus": [
     {
-      "title": "Summer Food",
+      "title": "Food Menu",
       "description": "Our seasonal main menu — hearty plates and pub classics.",
       "linkType": "pdf",
       "pdf": "/assets/uploads/web-menu.png"
