@@ -34,13 +34,13 @@
       "title": "Food Menu",
       "description": "Our seasonal main menu — hearty plates and pub classics.",
       "linkType": "pdf",
-      "pdf": "/assets/uploads/web-menu.png"
+      "pdf": "/assets/uploads/new-menu-pdf.pdf"
     },
     {
       "title": "Breakfast",
       "description": "Served 9am to 11am. A proper start to the day.",
       "linkType": "pdf",
-      "pdf": "https://cdn.prod.website-files.com/6731e4ab0e108a05445a46c4/6911bf401c6f83070a6afc31_Breakfast%20Menu%20Spring%2025.pdf"
+      "pdf": "/assets/uploads/breakfast-menu-pdf.pdf"
     },
     {
       "title": "Sunday Roasts",
