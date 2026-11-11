@@ -132,6 +132,60 @@
   .form-msg{display:none;padding:14px;border-radius:1px;font-size:.92rem;margin-top:10px;background:#d8ddca;color:var(--ink);}
   .form-msg.ok{display:block;}
 
+  /* ---- Gift vouchers ---- */
+  .wrap.block{padding-left:32px;padding-right:32px;}
+  .vouchers .block{padding-top:48px;}
+  .vgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:start;}
+  .vouchers h2{color:var(--maroon);font-size:clamp(2.2rem,4vw,3.1rem);margin-bottom:20px;}
+  .vsub{color:var(--ink);font-size:1.08rem;max-width:44ch;margin:0 0 24px;}
+  .vbadge{display:inline-block;background:var(--maroon);color:var(--cream);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:8px 14px;border-radius:1px;}
+  .vphys{margin:16px 0 34px;color:var(--muted);font-size:.95rem;max-width:44ch;}
+  .vterms-card{border-top:1px solid var(--line);padding-top:22px;max-width:46ch;}
+  .vterms-card h3{font-size:.74rem;font-family:"Mulish",sans-serif;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:12px;}
+  .vterms-card ul{list-style:none;margin:0;padding:0;}
+  .vterms-card li{position:relative;padding:8px 0 8px 22px;color:var(--muted);font-size:.93rem;line-height:1.5;border-bottom:1px solid rgba(182,185,170,.55);}
+  .vterms-card li:last-child{border-bottom:0;}
+  .vterms-card li::before{content:"";position:absolute;left:2px;top:15px;width:6px;height:6px;background:var(--maroon);transform:rotate(45deg);}
+  .vbox{background:var(--bar);border:1px solid var(--line);border-top:4px solid var(--maroon);padding:34px 34px 30px;box-shadow:0 14px 34px rgba(45,44,40,.08);}
+  .vbox .vlabel{font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.72rem;color:var(--ink);margin:0 0 12px;}
+  .amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
+  .amt{font-family:"Mulish",system-ui,sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:.01em;padding:18px 0;background:var(--card);color:var(--maroon);border:1px solid var(--line);cursor:pointer;transition:background .15s,color .15s,border-color .15s,transform .15s;}
+  .amt:hover{border-color:var(--maroon);transform:translateY(-2px);}
+  .amt-test{grid-column:1/-1;font-size:.9rem;padding:9px 0;border-style:dashed;}
+  .amt:focus-visible{outline:2px solid var(--maroon);outline-offset:2px;}
+  .amt[aria-pressed="true"]{background:var(--maroon);color:var(--cream);border-color:var(--maroon);}
+  .vbox .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .vbox .consent{margin-top:4px;}
+  .vbox .btn{width:100%;padding-top:16px;padding-bottom:16px;}
+  .vsecure{margin:12px 0 0;text-align:center;font-size:.8rem;color:var(--muted);}
+  .vmsg{display:none;padding:12px 14px;margin-top:16px;font-size:.92rem;background:#d8ddca;}
+  .vmsg.show{display:block;}
+  .vmsg.err{background:#ecd3d0;color:#5a1b1b;}
+  .vpay-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--line);}
+  .vpay-head strong{font-family:"Mulish",system-ui,sans-serif;font-weight:800;font-size:1.5rem;color:var(--maroon);}
+  .vpay-head button{background:none;border:0;font:inherit;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--maroon);cursor:pointer;border-bottom:1px solid var(--maroon);padding:0 0 2px;}
+  #sumup-card{min-height:200px;}
+  .vdone{text-align:center;padding:18px 0;}
+  .vdone h3{color:var(--maroon);font-size:1.9rem;margin-bottom:12px;}
+  .vdone p{margin:0 0 10px;color:var(--ink);}
+  @media (max-width:880px){ .vgrid{grid-template-columns:1fr;gap:36px;} }
+  @media (max-width:540px){ .vbox .two{grid-template-columns:1fr;gap:0;} .vbox{padding:26px 20px;} .amt{font-size:1.45rem;padding:15px 0;} .wrap.block{padding-left:20px;padding-right:20px;} }
+
+  /* ---- Voucher band ---- */
+  .vouchers{background:var(--maroon);margin-top:24px;}
+  .vouchers .block{padding-top:64px;padding-bottom:76px;}
+  .vouchers .eyebrow{color:var(--cream);opacity:.85;}
+  .vouchers h2{color:var(--cream);}
+  .vouchers .vsub{color:var(--cream);}
+  .vbadge{background:var(--cream);color:var(--maroon);}
+  .vphys{color:rgba(244,241,232,.82);}
+  .vterms-card{border-top-color:rgba(244,241,232,.35);}
+  .vterms-card h3{color:var(--cream);}
+  .vterms-card li{color:rgba(244,241,232,.9);border-bottom-color:rgba(244,241,232,.22);}
+  .vterms-card li::before{background:var(--cream);}
+  .vbox{border-color:transparent;border-top:4px solid var(--sage);box-shadow:0 18px 44px rgba(0,0,0,.28);}
+  @media (max-width:540px){ .vouchers .block{padding-top:48px;padding-bottom:56px;} }
+
   /* ---- Footer ---- */
   footer{background:var(--maroon);color:var(--cream);padding:54px 0 42px;margin-top:40px;}
   .foot{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;}
@@ -185,6 +239,7 @@
     <nav class="links" id="navLinks">
       <a class="link" href="#events">What's On</a>
       <a class="link" href="#menu">Menus</a>
+      <a class="link" href="#vouchers">Vouchers</a>
       <a class="link" href="#contact">Contact</a>
       <a class="btn btn-primary" href="#" data-book>Book</a>
     </nav>
@@ -237,6 +292,61 @@
   </div>
 </section>
 
+<section class="vouchers" id="vouchers">
+  <div class="wrap block">
+    <div class="vgrid">
+      <div class="vintro">
+        <div class="eyebrow">Gift Vouchers</div>
+        <h2>The perfect gift</h2>
+        <p class="vsub">Treat someone to a meal or a drink at The Garrison. Choose an amount, pay securely online, and we'll email the voucher to you.</p>
+        <span class="vbadge">E-voucher only</span>
+        <p class="vphys">If you would like a physical voucher, please visit us at The Garrison.</p>
+        <div class="vterms-card">
+          <h3>Voucher terms</h3>
+          <ul>
+            <li>Can be redeemed for food or drinks.</li>
+            <li>Valid for 12 months from the date of issue.</li>
+            <li>Redeemable only at The Garrison, Castletown, Isle of Man.</li>
+            <li>Not redeemable for cash. No change will be given.</li>
+            <li>E-vouchers are emailed within 72 hours of purchase.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="vbox">
+        <form id="voucherForm" novalidate>
+          <p class="vlabel">Choose an amount</p>
+          <div class="amounts" id="amounts">
+            <button type="button" class="amt" data-amount="50" aria-pressed="true">£50</button>
+            <button type="button" class="amt" data-amount="75" aria-pressed="false">£75</button>
+            <button type="button" class="amt" data-amount="100" aria-pressed="false">£100</button>
+            <button type="button" class="amt amt-test" data-amount="1" aria-pressed="false" hidden>£1 (test link only)</button>
+          </div>
+          <p class="vlabel">Your details</p>
+          <div class="two">
+            <div class="field"><label for="vRecipient">Voucher is for</label><input type="text" id="vRecipient" maxlength="80" autocomplete="off" required /></div>
+            <div class="field"><label for="vBuyer">Your name</label><input type="text" id="vBuyer" maxlength="80" autocomplete="name" required /></div>
+          </div>
+          <div class="field"><label for="vEmail">Your email (we'll send the voucher here)</label><input type="email" id="vEmail" maxlength="120" autocomplete="email" required /></div>
+          <div class="field"><label for="vMessage">Message (optional)</label><textarea id="vMessage" maxlength="300" style="min-height:80px;"></textarea></div>
+          <label class="consent"><input type="checkbox" id="vConsent" required /><span>I have read and accept the voucher terms.</span></label>
+          <button type="submit" class="btn btn-primary" id="vSubmit">Continue to payment</button>
+          <p class="vsecure">Secure payment by SumUp. Card or Apple Pay where available.</p>
+        </form>
+        <div id="voucherPay" hidden>
+          <div class="vpay-head"><strong id="vPayAmount"></strong><button type="button" id="vBack">Change details</button></div>
+          <div id="sumup-card"></div>
+        </div>
+        <div class="vdone" id="voucherDone" hidden>
+          <h3>Thank you!</h3>
+          <p>Your payment has been received. Your e-voucher will be emailed to you within 72 hours.</p>
+          <p>If you have any questions, call us on <span class="vphone">01624 824885</span>.</p>
+        </div>
+        <div class="vmsg" id="voucherMsg" role="alert"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="games" id="games">
   <div class="wrap block">
     <div class="games-grid">
@@ -286,6 +396,12 @@
     <div class="copy">© <span id="year"></span> The Garrison · 5 Castle St, Castletown, Isle of Man, IM9 1LF</div>
   </div>
 </footer>
+
+<!-- Netlify Forms: the SumUp webhook posts each PAID voucher order here (-> email notification). Not shown to visitors. -->
+<form name="voucher-order" method="POST" data-netlify="true" hidden>
+  <input name="amount" /><input name="recipient-name" /><input name="buyer-name" /><input name="buyer-email" />
+  <input name="message" /><input name="sumup-checkout-id" /><input name="reference" /><input name="paid-at" />
+</form>
 
 <div class="modal" id="bookModal" role="dialog" aria-modal="true" aria-label="Book a table">
   <div class="modal-box">
@@ -407,6 +523,74 @@
 
   render(DEFAULT_CONTENT);
   fetch("content.json").then(r => r.ok ? r.json() : null).then(c => { if (c) render(c); }).catch(() => {});
+
+  /* ---- Gift vouchers (SumUp) ---- */
+  (function(){
+    const form = $("voucherForm"), pay = $("voucherPay"), done = $("voucherDone"), msg = $("voucherMsg");
+    const btns = document.querySelectorAll(".amt");
+    let amount = 50;
+    let sdkPromise = null, card = null;
+
+    const showMsg = (t, err) => { msg.textContent = t; msg.className = "vmsg show" + (err ? " err" : ""); };
+    const hideMsg = () => { msg.className = "vmsg"; };
+    const syncPressed = () => btns.forEach(b => b.setAttribute("aria-pressed", String(Number(b.dataset.amount) === amount)));
+    // £1 test amount: only offered on Netlify test links (deploy previews / branch deploys), never on the live site.
+    if (/--.+\.netlify\.app$/.test(location.hostname)) document.querySelector(".amt-test").hidden = false;
+    btns.forEach(b => b.addEventListener("click", () => { amount = Number(b.dataset.amount); syncPressed(); }));
+
+    function loadSdk(){
+      if (window.SumUpCard) return Promise.resolve();
+      if (!sdkPromise) sdkPromise = new Promise((res, rej) => {
+        const s = document.createElement("script");
+        s.src = "https://gateway.sumup.com/gateway/ecom/card/v2/sdk.js";
+        s.onload = res; s.onerror = () => rej(new Error("sdk"));
+        document.head.appendChild(s);
+      });
+      return sdkPromise;
+    }
+
+    function showForm(){ pay.hidden = true; done.hidden = true; form.hidden = false; hideMsg(); if (card && card.unmount) { try { card.unmount(); } catch(e){} } card = null; }
+
+    $("vBack").addEventListener("click", showForm);
+
+    form.addEventListener("submit", async e => {
+      e.preventDefault(); hideMsg();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const btn = $("vSubmit"); btn.disabled = true; btn.textContent = "Please wait…";
+      try {
+        const [res] = await Promise.all([
+          fetch("/.netlify/functions/create-voucher-checkout", {
+            method: "POST", headers: {"Content-Type":"application/json"},
+            body: JSON.stringify({ amount, recipientName: $("vRecipient").value, buyerName: $("vBuyer").value,
+                                   buyerEmail: $("vEmail").value, message: $("vMessage").value })
+          }),
+          loadSdk()
+        ]);
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || "Sorry, something went wrong. Please try again.");
+        form.hidden = true; pay.hidden = false;
+        $("vPayAmount").textContent = `£${data.amount} gift voucher`;
+        card = SumUpCard.mount({
+          id: "sumup-card", checkoutId: data.checkoutId, country: "GB", currency: "GBP", locale: "en-GB",
+          amount: String(data.amount), email: $("vEmail").value,
+          onResponse: (type, body) => {
+            if (type === "success" && body && body.status && body.status !== "PAID") { showMsg("The payment wasn't completed. Please try again.", true); return; }
+            if (type === "success") { pay.hidden = true; done.hidden = false; hideMsg(); form.reset(); amount = 50; syncPressed(); }
+            else if (type === "fail" || type === "error") showMsg("The payment didn't go through. Please check your details or try another card.", true);
+          }
+        });
+      } catch (err) {
+        showMsg(err.message === "sdk" ? "Couldn't load the secure payment form. Please check your connection and try again." : err.message, true);
+      } finally { btn.disabled = false; btn.textContent = "Continue to payment"; }
+    });
+
+    // Coming back from a 3-D Secure / wallet redirect
+    if (new URLSearchParams(location.search).get("voucher") === "return") {
+      form.hidden = true; done.hidden = false;
+      done.querySelector("p").textContent = "Thanks — if your payment went through, your e-voucher will be emailed to you within 72 hours.";
+    }
+    $("voucherDone").querySelector(".vphone").textContent = (typeof DEFAULT_CONTENT !== "undefined" && DEFAULT_CONTENT.contact.phone) || "01624 824885";
+  })();
 
   const toggle = $("menuToggle"), links = $("navLinks");
   toggle.addEventListener("click", () => { const o = links.classList.toggle("open"); toggle.setAttribute("aria-expanded", o); });
