@@ -1,9 +1,19 @@
 # No build step needed — this is a static site published from the repo root.
 [build]
   publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
 
 # Keep the admin panel out of search results
 [[headers]]
   for = "/admin/*"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+# Apple Pay domain verification file must be served as plain text, no redirects.
+[[headers]]
+  for = "/.well-known/apple-developer-merchantid-domain-association"
+  [headers.values]
+    Content-Type = "text/plain"
