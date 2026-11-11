@@ -30,7 +30,7 @@ export default async (req) => {
     return ok();
   }
 
-  const siteUrl = (Netlify.env.get("URL") || "").replace(/\/$/, "");
+  const siteUrl = new URL(req.url).origin;   // the same site this webhook was called on
   const form = new URLSearchParams({
     "form-name": "voucher-order",
     amount: `£${order.amount}`,

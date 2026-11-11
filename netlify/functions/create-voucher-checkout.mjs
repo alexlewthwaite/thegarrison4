@@ -29,7 +29,8 @@ export default async (req) => {
   if (!order.buyerName || !order.recipientName) return json({ error: "Please enter your name and the recipient's name." }, 400);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(order.buyerEmail)) return json({ error: "Please enter a valid email address." }, 400);
 
-  const siteUrl = (Netlify.env.get("URL") || new URL(req.url).origin).replace(/\/$/, "");
+  // Use the address the customer is actually on (works on deploy previews and on the live site).
+  const siteUrl = new URL(req.url).origin;
   const reference = ("GV-" + Date.now().toString(36) + "-" + crypto.randomUUID().slice(0, 8)).slice(0, 64);
 
   const res = await fetch("https://api.sumup.com/v0.1/checkouts", {
