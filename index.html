@@ -151,6 +151,7 @@
   .amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
   .amt{font-family:"Mulish",system-ui,sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:.01em;padding:18px 0;background:var(--card);color:var(--maroon);border:1px solid var(--line);cursor:pointer;transition:background .15s,color .15s,border-color .15s,transform .15s;}
   .amt:hover{border-color:var(--maroon);transform:translateY(-2px);}
+  .amt-test{grid-column:1/-1;font-size:.9rem;padding:9px 0;border-style:dashed;}
   .amt:focus-visible{outline:2px solid var(--maroon);outline-offset:2px;}
   .amt[aria-pressed="true"]{background:var(--maroon);color:var(--cream);border-color:var(--maroon);}
   .vbox .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
@@ -303,6 +304,7 @@
             <button type="button" class="amt" data-amount="50" aria-pressed="true">£50</button>
             <button type="button" class="amt" data-amount="75" aria-pressed="false">£75</button>
             <button type="button" class="amt" data-amount="100" aria-pressed="false">£100</button>
+            <button type="button" class="amt amt-test" data-amount="1" aria-pressed="false" hidden>£1 (test link only)</button>
           </div>
           <p class="vlabel">Your details</p>
           <div class="two">
@@ -517,6 +519,8 @@
     const showMsg = (t, err) => { msg.textContent = t; msg.className = "vmsg show" + (err ? " err" : ""); };
     const hideMsg = () => { msg.className = "vmsg"; };
     const syncPressed = () => btns.forEach(b => b.setAttribute("aria-pressed", String(Number(b.dataset.amount) === amount)));
+    // £1 test amount: only offered on Netlify test links (deploy previews / branch deploys), never on the live site.
+    if (/--.+\.netlify\.app$/.test(location.hostname)) document.querySelector(".amt-test").hidden = false;
     btns.forEach(b => b.addEventListener("click", () => { amount = Number(b.dataset.amount); syncPressed(); }));
 
     function loadSdk(){

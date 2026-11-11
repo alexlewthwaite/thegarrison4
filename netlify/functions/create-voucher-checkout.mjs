@@ -2,7 +2,9 @@
 // so the webhook can email the venue once payment is confirmed.
 import { getStore } from "@netlify/blobs";
 
-const ALLOWED_AMOUNTS = [50, 75, 100];
+// £1 is a test amount: accepted only when this is NOT the live (production) deploy.
+const isLive = () => Netlify.env.get("CONTEXT") === "production";
+const allowedAmounts = () => (isLive() ? [50, 75, 100] : [1, 50, 75, 100]);
 const json = (obj, status = 200) =>
   new Response(JSON.stringify(obj), { status, headers: { "Content-Type": "application/json" } });
 const clean = (v, max) => String(v ?? "").replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, max);
@@ -25,7 +27,7 @@ export default async (req) => {
     recipientName: clean(b.recipientName, 80),
     message: clean(b.message, 300),
   };
-  if (!ALLOWED_AMOUNTS.includes(amount)) return json({ error: "Please choose £50, £75 or £100." }, 400);
+  if (!allowedAmounts().includes(amount)) return json({ error: "Please choose £50, £75 or £100." }, 400);
   if (!order.buyerName || !order.recipientName) return json({ error: "Please enter your name and the recipient's name." }, 400);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(order.buyerEmail)) return json({ error: "Please enter a valid email address." }, 400);
 
