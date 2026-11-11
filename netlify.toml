@@ -17,3 +17,14 @@
   for = "/.well-known/apple-developer-merchantid-domain-association"
   [headers.values]
     Content-Type = "text/plain"
+
+# Staff tool: keep the voucher maker out of search engines.
+[[headers]]
+  for = "/voucher-maker"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/voucher-maker/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
